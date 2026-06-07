@@ -1,0 +1,122 @@
+/**
+ * ==================================================
+ * Global CSS Styles — CineBook
+ * --------------------------------------------------
+ * Tailwind CSS v4 directives + custom design tokens
+ * for the premium cinematic UI system.
+ *
+ * Includes:
+ * - Tailwind import
+ * - Custom scrollbar styling
+ * - Global box-sizing reset
+ * - Input autofill override (removes browser default bg)
+ * - Custom selection color
+ * ==================================================
+ */
+
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────
+   Global Reset & Base
+───────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #030712;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────
+   Text Selection
+───────────────────────────────────────────────── */
+
+::selection {
+  background-color: rgba(255, 77, 0, 0.35);
+  color: #fff;
+}
+
+/* ─────────────────────────────────────────────────
+   Custom Scrollbar
+───────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 106, 0, 0.4);
+}
+
+/* ─────────────────────────────────────────────────
+   Autofill Override
+   Prevents browser from overriding glassmorphism
+   input backgrounds with white/yellow autofill
+───────────────────────────────────────────────── */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(15, 23, 42, 0.95) inset !important;
+  -webkit-text-fill-color: #f8fafc !important;
+  caret-color: #f8fafc;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* ─────────────────────────────────────────────────
+   Focus Visible — Keyboard Navigation
+───────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid rgba(255, 106, 0, 0.6);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ─────────────────────────────────────────────────
+   Smooth Transitions for Interactive Elements
+───────────────────────────────────────────────── */
+
+a,
+button {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* ─────────────────────────────────────────────────
+   Checkbox Accent Color
+───────────────────────────────────────────────── */
+
+input[type='checkbox'] {
+  accent-color: #ff6a00;
+}
